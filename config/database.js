@@ -1,5 +1,4 @@
 const {createPool} = require("mysql");
-const {migration} = require("node-mysql-migration")
 
 const pool = createPool({
     port: process.env.DB_PORT,
