@@ -1,0 +1,177 @@
+FORMAT: 1A
+HOST: http://localhost:3000/
+
+# APP-JS
+
+This host available on using this repository : https://github.com/zhuangalbert/app-js.
+
+## Create User [/api/users]
+
+### Create User [POST]
+
+Creaate new user using this action.
+
++ Request (application/json)
+
+        {
+            "username": "user_1",
+            "name" : "user1"
+            "role" : "customer",
+            "password" : "user1234"
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": "3",
+                "username" : "user_1",
+                "name" : "user1",
+                "role" : "customer",
+                "password" : "$2a$10$vesmfcrJOMWV1zEhNM3skeYD5JYeC80u0MRIlYZo7.JP8kYF4nXhy",
+                "created_at": "2020-04-03T12:19:07.360401+07:00",
+                "updated_at": "2020-04-03T12:19:07.360402+07:00"
+            }
+            
+            
+## Login [/api/users/login]
+
+### Login [POST]
+
+login user using this action.
+
++ Request (application/json)
+
+        {
+            "username": "user_1",
+            "password" : "user1234"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsInVzZXJuYW1lIjoiemh1YW5nYWxiZXJ0IiwibmFtZSI6ImFsYmVydCIsInJvbGUiOiJ1c2VyIn0sImlhdCI6MTU4NjIwOTU0OCwiZXhwIjoxNTg2MjEzMTQ4fQ.oPPiECoC7OY-OeCSF3S0xMuH6KdmzdtpI79d8ZCc7fQ",
+                "username": "zhuangalbert",
+                "name": "albert",
+                "role": "user"
+            }
+
+            
+
+## Profile [/api/users/profile]
+
+
+### Get Profile [GET]
+
+Get User profile on active user using this action.
+
++ Request
+    + Headers
+
+            Authorization: Bearer {access_token}
+
+
++ Response 200 (application/json)
+
+        {
+            "id": 3,
+            "username": "user_1",
+            "name": "user1",
+            "role": "customer",
+            "password": "$2a$10$vesmfcrJOMWV1zEhNM3skeYD5JYeC80u0MRIlYZo7.JP8kYF4nXhy",
+            "created_at": "2020-04-03T12:19:07+07:00",
+            "updated_at": "2020-04-03T12:19:07+07:00"
+        }
+        
+        
+
+## Commodity [/api/commodity]
+
+### Get Commodity [GET]
+
+Get Commodity list using this action.
+
++ Request
+    + Headers
+
+            Authorization: Bearer {access_token}
+
++ Response 200 (application/json)
+
+        [
+            {
+                "uuid": "8a23fcab-ef67-48b8-8ba1-7055ea91ea3b",
+                "komoditas": "Penaeus Vannamei",
+                "area_provinsi": "BANTEN",
+                "area_kota": "PANDEGLANG",
+                "size": "40",
+                "price": "72000",
+                "tgl_parsed": "2019-11-11T17:00:00.000Z",
+                "timestamp": "1573491600"
+            },
+            {
+                "uuid": "8eba7e44-49da-4393-a625-c77a3441dd3a",
+                "komoditas": "Penaeus Vannamei",
+                "area_provinsi": "BANTEN",
+                "area_kota": "PANDEGLANG",
+                "size": "50",
+                "price": "65000",
+                "tgl_parsed": "2019-11-11T17:00:00.000Z",
+                "timestamp": "1573491600"
+            }
+        ]
+        
+        
+
+## Area [/api/area]
+
+### Get Area [GET]
+
+Get list area using this action.
+
++ Response 200 (application/json)
+
+        [
+             {
+                "province": "JAWA TIMUR",
+                "city": "BANYUWANGI"
+            },
+            {
+                "province": "JAWA TIMUR",
+                "city": "SITUBONDO"
+            },
+            {
+                "province": "JAWA TIMUR",
+                "city": "PROBOLINGGO"
+            }
+        ]
+
+## Size [/api/size]
+
+### Get Size [GET]
+
+Get list size using this action
+
+
++ Response 200 (application/json)
+
+        [
+            {
+                "size": "30"
+            },
+            {
+                "size": "40"
+            },
+            {
+                "size": "50"
+            },
+            {
+                "size": "60"
+            },
+            {
+                "size": "70"
+            }
+        ]
