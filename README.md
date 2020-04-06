@@ -87,20 +87,20 @@ you can see the active container with this command :
 ```bash
 docker ps
 ```
-[](docs/images/docker-ps.png)
+![](docs/images/docker-ps.png)
 
 then execute the docker container with this command : 
 ```bash
 docker exec -it {container_id/image_name} /bin/bash 
 ```
-[](docs/images/docker-execute.png)
+![](docs/images/docker-execute.png)
 Now, we are in the docker container.
 We need to migrate Database with Sequelize (depedencies from node_modules) docs : https://sequelize.org/.
 With this command : 
 ```bash
 node_modules/.bin/sequelize db:migrate
 ```
-[](docs/images/db-migrate.png)
+![](docs/images/db-migrate.png)
 
 
 ## Documentation - CURL
