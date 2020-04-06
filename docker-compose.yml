@@ -1,0 +1,39 @@
+version: '3'
+services:
+  app:
+    container_name: app_nodejs
+    build: .
+    ports: 
+      - ${APP_PORT}:${APP_PORT}
+    restart: on-failure
+    volumes:
+      - api:/usr/src/app/
+    depends_on:
+      - app-mysql          
+    networks:
+      - app_nodejs
+
+  app-mysql:
+    image: mysql:5.7
+    container_name: app_db_mysql
+    ports: 
+      - 3306:3306
+    environment: 
+      - MYSQL_ROOT_HOST=${DB_HOST} 
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - database_mysql:/var/lib/mysql
+    networks:
+      - app_nodejs
+
+volumes:
+  api:
+  database_mysql:                  
+
+# Networks to be created to facilitate communication between containers
+networks:
+  app_nodejs:
+    driver: bridge
