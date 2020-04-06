@@ -107,6 +107,60 @@ node_modules/.bin/sequelize db:migrate
 
 - Create User
 
+```bash
+curl --location --request POST 'localhost:3000/api/users' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"username" : "zhuangalbert",
+	"name" : "albert",
+	"role" : "user",
+	"password": "password"
+}'
+```
+![](docs/images/create-user.png)
+
+- Login
+
+```bash
+curl --location --request POST 'localhost:3000/api/users/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"username": "zhuangalbert",
+	"password": "password"
+}'
+```
+![](docs/images/login.png)
+
+- Get Profile
+
+```bash
+curl --location --request GET 'localhost:3000/api/users/profile' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsInVzZXJuYW1lIjoiemh1YW5nYWxiZXJ0IiwibmFtZSI6ImFsYmVydCIsInJvbGUiOiJ1c2VyIn0sImlhdCI6MTU4NjIwOTU0OCwiZXhwIjoxNTg2MjEzMTQ4fQ.oPPiECoC7OY-OeCSF3S0xMuH6KdmzdtpI79d8ZCc7fQ'
+```
+![](docs/images/get-profile.png)
+
+- Get Commodity
+
+```bash
+curl --location --request GET 'localhost:3000/api/commodities' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjEsInVzZXJuYW1lIjoiemh1YW5nYWxiZXJ0IiwibmFtZSI6ImFsYmVydCIsInJvbGUiOiJ1c2VyIn0sImlhdCI6MTU4NjIwOTU0OCwiZXhwIjoxNTg2MjEzMTQ4fQ.oPPiECoC7OY-OeCSF3S0xMuH6KdmzdtpI79d8ZCc7fQ'
+```
+![](docs/images/get-commodity.png)
+
+- Get Area
+
+```bash
+curl --location --request GET 'localhost:3000/api/areas'
+```
+![](docs/images/get-area.png)
+
+- Get Size
+
+
+```bash
+curl --location --request GET 'localhost:3000/api/sizes'
+```
+![](docs/images/get-size.png)
 
 Note : 
 - postman collection : https://www.getpostman.com/collections/94b8163f12ac89ec8a3c
