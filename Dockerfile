@@ -1,7 +1,7 @@
-FROM node:10
+FROM node:10.18.1
 
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
@@ -11,9 +11,11 @@ COPY package*.json ./
 RUN npm install
 # If you are building your code for production
 # RUN npm ci --only=production
+RUN npm install node-pre-gyp
+
 
 # Bundle app source
 COPY . .
 
-EXPOSE 8080
+EXPOSE 3000
 CMD [ "node", "app.js" ]
